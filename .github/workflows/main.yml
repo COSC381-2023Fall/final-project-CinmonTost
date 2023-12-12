@@ -1,0 +1,30 @@
+name: task1
+
+on:
+  push:
+    branches:
+      - main  # Adjust branch name if needed
+  pull_request:
+    branches:
+      - main  # Adjust branch name if needed
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.11.7'  # Specify your Python version here
+
+      - name: Install dependencies
+        run: |
+          pip install venv fastapi uvicorn pytest pytest-cov pytest-mock
+          
+      - name: Run tests and generate coverage report
+        run: |
+          pytest --cov=main
