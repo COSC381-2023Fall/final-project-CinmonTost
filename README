@@ -1,1 +1,5 @@
-initial commit
+To run task 1, type in the terminal, pip install requirements.txt
+After the installation run the command in the terminal: uvicorn main:app --reload
+then ctrl + left click on the ip address. At the end of the URL, add /docs
+from there, find the method, click on it, and click Try it out at the right side of the screen
+Click execute
