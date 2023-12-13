@@ -23,7 +23,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install fastapi uvicorn pytest pytest-cov pytest-mock
+          pip install fastapi uvicorn httpx pytest pytest-cov pytest-mock
           
       - name: Run tests and generate coverage report
         run: |
