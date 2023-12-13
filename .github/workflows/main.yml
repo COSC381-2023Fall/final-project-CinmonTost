@@ -23,7 +23,7 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install fastapi uvicorn httpx pytest pytest-cov pytest-mock
+          pip install fastapi uvicorn httpx pytest pytest-cov pytest-mock google-api-python-client youtube-search-python
           
       - name: Run tests and generate coverage report
         run: |
