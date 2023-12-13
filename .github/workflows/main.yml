@@ -27,4 +27,4 @@ jobs:
           
       - name: Run tests and generate coverage report
         run: |
-          pytest --cov=main
+          pytest --cov=.
