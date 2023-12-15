@@ -1,4 +1,6 @@
 import youtube_search
+from unittest.mock import Mock, patch
+import pytest
 
 def test_get_movie_reviews(mocker):
     mock_result = {
