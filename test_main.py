@@ -38,3 +38,18 @@ def test_get_video_description():
     non_existent_video_id = "thisisnotarealvideoID"
     response = client.get(f"/descriptions/{non_existent_video_id}")
     assert response.status_code == 404
+
+def test_get_movie_reviews():
+    response = client.get("/moviereviews/es/Inception")
+    assert response.status_code == 200
+    reviews = response.json()
+    assert isinstance(reviews, list)
+
+    if reviews:
+        for review in reviews:
+            assert "title" in review
+            assert "url" in review
+            assert "description" in review
+
+    response = client.get("/moviereviews/es/NonExistentMovie123/hello")
+    assert response.status_code == 404
