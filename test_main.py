@@ -26,3 +26,15 @@ def test_get_movie_reviews():
     reviews = response.json()
     assert len(reviews) == 0  
 
+def test_get_video_description():
+    test_video_id = "dQw4w9WgXcQ"
+
+    response = client.get(f"/descriptions/{test_video_id}")
+    assert response.status_code == 200
+    data = response.json()
+    assert data['video_id'] == test_video_id
+    assert 'description' in data
+
+    non_existent_video_id = "thisisnotarealvideoID"
+    response = client.get(f"/descriptions/{non_existent_video_id}")
+    assert response.status_code == 404
